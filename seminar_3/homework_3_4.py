@@ -7,7 +7,10 @@
 # - 3 -> 11
 # - 2 -> 10
 
-def convert_decimal_to_binary(num):
+def convert_decimal_to_binary(num) -> str:
+    '''
+    Перевод десятичного числа в двоичное
+    '''
     while (num.isdigit() == False or float(num) <= 0):
         # проверка на число, целочисленность и на неотрицательность
         num = input(

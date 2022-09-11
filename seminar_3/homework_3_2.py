@@ -8,7 +8,10 @@
 import homework_3_1 as module_func
 
 
-def add_pairs_of_list():
+def add_pairs_of_list() -> list:
+    '''
+    Поиск произведения пар чисел списка
+    '''
     mult_pair = 0
     mult_pairs_list = []
     list_num = module_func.make_list_num()

@@ -4,7 +4,10 @@
 
 # - [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 
-def make_list_num():
+def make_list_num() -> list:
+    '''
+    Получение списка
+    '''
     global list_num
     list_num = []
     n = input(
@@ -28,7 +31,10 @@ def make_list_num():
     return list_num
 
 
-def sum_odd():
+def sum_odd() -> float:
+    '''
+    Получение суммы элементов списка, стоящих на нечетной позиции
+    '''
     sum_odd_el = 0
     make_list_num()
     if len(list_num) == 0:

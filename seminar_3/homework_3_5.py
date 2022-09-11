@@ -7,7 +7,10 @@
 # [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
 # [Негафибоначчи](https://clck.ru/yWbkX.)
 
-def fibonacci_negafibonacci(k):
+def fibonacci_negafibonacci(k) -> list:
+    '''
+    Получение списка Фибоначчи, включая отрицательные индексы
+    '''
     fibonacci_list = [0, 1]
     negafibonacci_list = []
     negafibonacci_reversed = []

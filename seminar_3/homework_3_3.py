@@ -8,7 +8,11 @@
 import homework_3_1 as module_func
 
 
-def find_diff_max_min():
+def find_diff_max_min() -> float:
+    '''
+    Поиск разницы между максимальным и минимальным значением 
+    дробной части элементов списка
+    '''
     list_num_div = []
     list_num = module_func.make_list_num()
     first_list_num = list_num.copy()

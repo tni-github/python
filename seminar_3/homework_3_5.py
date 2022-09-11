@@ -22,7 +22,6 @@ def fibonacci_negafibonacci(k) -> list:
     else:
         for i in range(2, int(k)+1):
             fibonacci_list.append(fibonacci_list[i-1] + fibonacci_list[i-2])
-        print(fibonacci_list)
         # получаем список Фибоначчи
         for i in range(1, len(fibonacci_list)):
             negafibonacci_list.append((-1)**(i+1)*fibonacci_list[i])

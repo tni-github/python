@@ -6,18 +6,26 @@
 
 import os
 from re import S
+import string
 os.system("cls")
 
 compressed_list = []
 
 
-def read_file_with_regular():
+def read_file_with_regular() -> string:
+    '''
+    Функция считывает текст (несжатый) из файла regular_text.txt
+    '''
     with open('regular_text.txt', 'r', encoding='utf-8') as file:
         regular_text = file.read()
         return regular_text
 
 
-def read_file_with_compression():
+def read_file_with_compression() -> string:
+    '''
+    Функция считывает текст из файла compressed_text.txt, в котором находится 
+    текст, сжатый при помощи RLE алгоритма
+    '''
     with open('compressed_text.txt', 'r', encoding='utf-8') as file:
         compressed_text = file.read()
         return compressed_text
@@ -54,9 +62,6 @@ def compress_text(text):
         compressed_text += compressed_list[i]
     return compressed_text
 
-# 12A11B10C6D5E4F1G 1p1y1t1h1o1n 1i1s 1s7o 1c7o1l
-
-
 words = []
 numbers = []
 
@@ -79,12 +84,20 @@ def decompress_text(text):
     return decompessed_text
 
 
-def write_in_file_with_compression(string_text):
+def write_in_file_with_compression(string_text: string) -> string: 
+    '''
+    Функция записывает текст, сжатый при помощи RLE алгоритма, в файл
+    compressed_text.txt
+    '''
     with open('compressed_text.txt', 'w', encoding='utf-8') as file:
         file.write(string_text)
 
 
-def write_in_file_with_regular(string_text):
+def write_in_file_with_regular(string_text: string) -> string:
+    '''
+    Функция записывает текст, восстановленный из сжатого при помощи RLE алгоритма, 
+    в файл regular_text.txt
+    '''
     with open('regular_text.txt', 'w', encoding='utf-8') as file:
         file.write(string_text)
 

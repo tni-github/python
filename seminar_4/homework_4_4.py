@@ -2,12 +2,18 @@
 # Сдвиг часто называют ключом шифрования.
 # Ваша задача - написать функцию, которая записывает в файл шифрованный текст, а также функцию, которая спрашивает ключ, считывает текст и дешифрует его.
 
+import string
 import moduleFunc as mod
 import os
 os.system("cls")
 
 
-def encrypt(text, key):
+def encrypt(text: string, key: int) -> string:
+    '''
+    Программа шифрует текст способом "Шифр Цезаря" - каждая буква 
+    смещается на определенное количество симолов влево или вправо.
+    Количество символов (ключ шифрования) задается пользователем.
+    '''
     encrypted_text = ''
     mod.enter_number_for_key(key)
     for i in range(len(text)):
@@ -20,7 +26,12 @@ def encrypt(text, key):
     return encrypted_text
 
 
-def decipher():
+def decipher() -> string:
+    '''
+    Программа дешифрует текст, зашифрованный способом "Шифр Цезаря", при котором
+    каждая буква смещается на определенное количество симолов влево или вправо.
+    Количество символов (ключ шифрования) вводит пользователь.
+    '''
     deciphered_text = ''
     with open('encrypt.txt', 'r', encoding='utf-8') as file:
         encrypted_text = file.read()

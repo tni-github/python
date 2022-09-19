@@ -1,7 +1,10 @@
-from tokenize import Number
 
 
-def enter_natural_number(n: int) -> int:
+from typing import List, Optional, Union
+import re
+
+
+def enter_natural_number(n: Optional[int]) -> Optional[int]:
     '''
     Проверка числа: является ли оно натуральным, зацикливание ввода числа, если не является
     '''
@@ -10,7 +13,7 @@ def enter_natural_number(n: int) -> int:
     return n
 
 
-def enter_number(n: Number) -> Number:
+def enter_number(n: Union[int, float]) -> Union[int, float]:
     '''
     Проверка на ввод числа
     '''
@@ -45,7 +48,7 @@ def find_factorial(n: int) -> int:
 
 # Согласно теореме Вильсона, если n — простое число, то
 # [(n–1)! + 1] делится на n (без остатка), что заложено в основу следующей функции check_is_prime_number(n)
-def check_is_prime_number(n: int) -> bool:
+def check_is_prime_number(n: int) -> Optional[bool]:
     '''
     Проверка числа: является ли оно простым
     '''
@@ -57,7 +60,7 @@ def check_is_prime_number(n: int) -> bool:
         return False
 
 
-def make_prime_number_list(n: int) -> list:
+def make_prime_number_list(n: int) -> List:
     '''
     Составляет список простых чисел в интервале от 1 до числа n
     '''
@@ -68,7 +71,7 @@ def make_prime_number_list(n: int) -> list:
     return prime_number_list
 
 
-def null_counter(num: float):
+def null_counter(num: float) -> int:
     '''
     Переносит точку в числе и считает, сколько знаков после точки
     param: num - вещественное число
@@ -92,7 +95,7 @@ def get_str_quantity(list: list) -> int:
     return str_quantity
 
 
-def clear_list(list: list, k: int) -> list:
+def clear_list(list: list, k: int):
     '''
     Чистит список: при наличии в нем строковых значений удаляет их из списка
     '''
@@ -100,3 +103,58 @@ def clear_list(list: list, k: int) -> list:
         if type(list[i]) == str:
             del list[i]
     return list
+
+
+def remove_spaces_in_string(text: Optional[str]):
+    '''
+    Чистит строку - удаляет все пробелы
+    '''
+    text = text.replace(' ', '')
+    return text
+
+
+def read_file(filename: Optional[str]) -> Optional[str]:
+    '''
+    Функция считывает данные из файла в виде строки.
+    '''
+    with open(filename, 'r', encoding='utf-8') as file:
+        data = file.read()
+        return data
+
+
+def overwrite_in_file(string_text: Union[str, int, float], filename: Optional[str]) -> Optional[str]:
+    '''
+    Функция ПЕРЕзаписывает данные в файл (данные в файле полностью обновляются). 
+    Если файла не существует, создается новый.
+    '''
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(string_text)
+
+
+def append_in_file(string_text: Union[str, int, float], filename: Optional[str]) -> Optional[str]:
+    '''
+    Функция ДОзаписывает данные в конец существующего файла 
+    (данные в файле дополняются переданной информацией).
+    Если файла не существует, создается новый.
+    '''
+    with open(filename, 'a', encoding='utf-8') as file:
+        file.write(string_text)
+
+
+def divide_string_to_list(text: Optional[str]) -> List:
+    '''
+    Функция разделяет элементы строки на элементы (не побуквенно).
+    В качестве разделителя используется пробел.
+    '''
+    elements_list = text.split(' ')
+    return elements_list
+
+
+def check_for_empty(text: Optional[str]):
+    '''
+    Функция проверяет строку на пустоту или пробел(-ы) и зацикливает ввод текста
+    до появления каких-либо других символов.
+    '''
+    while len(text) == 0 or re.search(r'\S', text) == None:
+        text = input('Вы ничего не ввели. Попробуйте снова: ')
+    return text
